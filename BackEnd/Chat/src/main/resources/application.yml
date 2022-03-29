@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    password: 1252
+    url: jdbc:postgresql://localhost:5432/chatapplication?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+    username:  chatapplication
