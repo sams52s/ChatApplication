@@ -1,0 +1,36 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  datasource:
+    password: 1252
+    url: jdbc:postgresql://localhost:5432/chatapplication
+    username: interns
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+      show-sql: true
+
+  mail:
+    mail:
+      default-encoding: UTF-8
+      host: smtp.gmail.com
+      username: alymooltazeem@gmail.com
+      password: sjhxvnuguwpgklyf
+      port: 587
+      properties:
+        mail:
+          smtp:
+            auth: true
+            starttls:
+              enable: true
+      protocol: smtp
+      test-connection: false
+
