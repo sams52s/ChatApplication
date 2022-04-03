@@ -1,0 +1,54 @@
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1648965791690)
++++ b/.idea/.gitignore	(date 1648965791690)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+Index: BackEnd/Chat/src/main/resources/application.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>spring:\n  datasource:\n    password: 1252\n    url: jdbc:postgresql://localhost:5432/chatapplication?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false\n    username:  chatapplication\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BackEnd/Chat/src/main/resources/application.yml b/BackEnd/Chat/src/main/resources/application.yml
+--- a/BackEnd/Chat/src/main/resources/application.yml	(revision 13a1964b0e1f532efa5460b1738a609b64c1e099)
++++ b/BackEnd/Chat/src/main/resources/application.yml	(date 1648551502028)
+@@ -2,4 +2,4 @@
+   datasource:
+     password: 1252
+     url: jdbc:postgresql://localhost:5432/chatapplication?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+-    username:  chatapplication
++    username:  interns
+Index: BackEnd/.idea/BackEnd.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BackEnd/.idea/BackEnd.iml b/BackEnd/.idea/BackEnd.iml
+new file mode 100644
+--- /dev/null	(date 1648545042186)
++++ b/BackEnd/.idea/BackEnd.iml	(date 1648545042186)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
