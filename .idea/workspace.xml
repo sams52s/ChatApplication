@@ -1,15 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
+  <component name="ChangeListManager">
+    <list default="true" id="29593578-1966-4948-bdef-495ab6d65dba" name="Changes" comment="branch created">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/appuser/AppUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/appuser/AppUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/appuser/AppUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/appuser/AppUserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/appuser/AppUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/appuser/exceptions/BadCredentialsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/appuser/exceptions/UnverifiedAccountException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/email/EmailSender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/email/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/email/EmailValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/email/InvalidEmailException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/registration/PasswordEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/registration/RegistrationConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/registration/RegistrationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/registration/RegistrationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/registration/RegistrationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/registration/token/ConfirmationToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/registration/token/ConfirmationTokenRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/registration/token/ConfirmationTokenService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/registration/token/RegistrationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Chat/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/resources/application.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="RunManager">
-    <configuration name="ChatApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="Chat" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="dsi.chat.ChatApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="273OUGxvzR06I78RNaKLc5i9rJs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/appuser" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="29593578-1966-4948-bdef-495ab6d65dba" name="Changes" comment="" />
+      <created>1648545316711</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1648545316711</updated>
+      <workItem from="1648545318013" duration="300000" />
+      <workItem from="1648546331076" duration="23000" />
+      <workItem from="1648550762837" duration="1779000" />
+      <workItem from="1648561113488" duration="4000" />
+      <workItem from="1648561145813" duration="56000" />
+      <workItem from="1648624178319" duration="12000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="branch created" />
+    <option name="LAST_COMMIT_MESSAGE" value="branch created" />
   </component>
 </project>
