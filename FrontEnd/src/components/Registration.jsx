@@ -108,7 +108,7 @@ class Registration extends Component {
                                 {this.ErrorBox()}
                                 <form onSubmit={this.submitHandler}>
                                     <div className = "form-group p-1">
-                                        <label align="left">First Name: </label>
+                                        <label className='my-2'>First Name: </label>
                                         <input 
                                         placeholder='First Name' 
                                         name='firstname' 
@@ -118,7 +118,7 @@ class Registration extends Component {
                                         required/>
                                     </div>
                                     <div className = "form-group p-1">
-                                        <label>Last Name: </label>
+                                        <label className='my-2'>Last Name: </label>
                                         <input 
                                         placeholder='Last Name' 
                                         name='lastname' 
@@ -128,7 +128,7 @@ class Registration extends Component {
                                         required/>
                                     </div>
                                     <div className = "form-group p-1">
-                                        <label>E-mail Address: </label>
+                                        <label className='my-2'>E-mail Address: </label>
                                         <input 
                                         placeholder='E-mail Address' 
                                         name='email' 
@@ -138,7 +138,7 @@ class Registration extends Component {
                                         required/>
                                     </div>
                                     <div className = "form-group p-1">
-                                        <label>Password: </label>
+                                        <label className='my-2'>Password: </label>
                                         <input 
                                         placeholder='Password' 
                                         type='password' 
@@ -149,7 +149,7 @@ class Registration extends Component {
                                         required/>
                                     </div>
                                     <div className = "form-group p-1">
-                                        <label>Confirm Password: </label>
+                                        <label className='my-2'>Confirm Password: </label>
                                         <input 
                                         placeholder='Password' 
                                         type='password' 

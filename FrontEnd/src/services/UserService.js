@@ -38,7 +38,6 @@ class UserService {
     resendMail(expiredToken) {
         return axios.get(USER_API_REG_URL+"/reconfirm?token="+expiredToken);
     }
-
     
 }
  

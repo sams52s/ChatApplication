@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import UserService from '../services/UserService';
 import Logo from './images/React-icon.svg';
 import { withRouter } from 'react-router-dom';
+import { Dropdown, Button } from 'react-bootstrap';
 
 class Navbar extends Component {
 
@@ -9,40 +10,21 @@ class Navbar extends Component {
         super(props);
 
         this.state = {
-            email: this.props.app_getEmail(),
-            firstName: "",
-            lastName: ""
+            name: undefined
         }
     }
 
     goToLogin = () => {
+        this.props.app_logout();
         this.props.history.push("/login");
     }
 
-    loginButton = () => {
+    getName = () => {
+        if (this.state.name === undefined) {
+            UserService.getUserName(this.props.app_getEmail(), true).then((res) => console.log(res));
+        }
 
-        if (this.state.email === null) {
-            return (<button type='button' align='right' className='btn btn-primary' onClick={this.goToLogin}>Login</button>);
-        }
-        else {
-            UserService.getUser(this.props.app_getEmail())
-                .then((res) => {
-                    this.setState({firstName: res.data.firstName, lastName: res.data.lastName});
-                });
-            
-            return (
-                <div class="dropdown">
-                    <button className="btn btn-secondary dropdown-toggle" type="button" align='right' data-bs-toggle="dropdown" aria-expanded="false">
-                        {this.state.firstName} {this.state.lastName}
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <li><button class="dropdown-item" type="button">Action</button></li>
-                        <li><button class="dropdown-item" type="button">Another action</button></li>
-                        <li><button class="dropdown-item" type="button">Something else here</button></li>
-                    </ul>
-                </div>
-            );
-        }
+        return this.state.name;
     }
 
     render() { 
@@ -53,7 +35,22 @@ class Navbar extends Component {
                         <img src={Logo} alt="" width="30" height="30" className="d-inline-block align-text-top me-2" />
                         Chat Application
                     </a>
-                    
+
+                    { this.props.app_getEmail() === null 
+                        ? (
+                            <Button align="right" variant="primary" onClick={this.goToLogin}><i className="bi bi-box-arrow-in-left me-2" />Login</Button>
+                        ) : (
+                            <Dropdown align='right'>
+                                <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                                    {this.getName}
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu>
+                                    <Dropdown.Item href="#/action-1"><i className="bi bi-gear-wide me-2" />Settings</Dropdown.Item>
+                                    <Dropdown.Item onClick={this.props.app_logout}><i className="bi bi-box-arrow-right me-2" />Logout</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                    )}
                 </div>
             
             </nav>

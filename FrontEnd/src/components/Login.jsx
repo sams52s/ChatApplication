@@ -83,7 +83,7 @@ class Login extends Component {
                                 
                                 <form onSubmit={this.handleSubmit}>
                                     <div>
-                                        <label>Email ID: </label>
+                                        <label className='my-2'>Email ID: </label>
                                         <input 
                                             className='form-control'
                                             placeholder='helloworld@example.com'
@@ -91,10 +91,10 @@ class Login extends Component {
                                             name="email"
                                             value={this.state.input_email}
                                             onChange={(e) => this.setState({input_email: e.target.value})}
-                                            required />
+                                            required/>
                                     </div>
                                     <div>
-                                        <label>Password: </label>
+                                        <label className='my-2'>Password: </label>
                                         <input 
                                             className='form-control'
                                             placeholder='Password'
@@ -102,7 +102,7 @@ class Login extends Component {
                                             name="pwd"
                                             value={this.state.input_pwd}
                                             onChange={(e) => this.setState({input_pwd: e.target.value})}
-                                            required />
+                                            required/>
                                     </div>
                                     <div>
                                         <button type='button' className='btn btn-success m-3' onClick={this.handleSubmit}>Sign In</button>

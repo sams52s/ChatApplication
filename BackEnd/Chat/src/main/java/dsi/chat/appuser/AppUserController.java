@@ -56,7 +56,7 @@ public class AppUserController {
         return appUserService.getName(email, false);
     }
 
-    // Get the first name by email
+    // Get the full name by email
     @GetMapping(path = "getfullname/{email}")
     public String getFullName(@PathVariable String email) {
         return appUserService.getName(email, true);
