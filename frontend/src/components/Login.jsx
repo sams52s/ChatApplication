@@ -40,6 +40,10 @@ class Login extends Component {
         this.props.history.push("/");
     } 
 
+    componentDidMount() {
+        console.log(this.props);
+    }
+
     handleSubmit = (event) => {
 
         event.preventDefault();
