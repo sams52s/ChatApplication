@@ -18,7 +18,7 @@ public class RegistrationConfig {
     @Bean
     CommandLineRunner commandLineRunner(AppUserRepository repository) {
         return args -> {
-            AppUser admin = new AppUser(
+            AppUser admin1 = new AppUser(
                     "Aly",
                     "Mooltazeem",
                     "aly.mooltazeem@dsinnovators.com",
@@ -26,11 +26,23 @@ public class RegistrationConfig {
                     AppUserRole.ADMIN
             );
 
-            String encodedPassword = PasswordEncoder.encode(admin.getPassword());
-            admin.setPassword(encodedPassword);
-            admin.setEnabled(true);
+            String encodedPassword = PasswordEncoder.encode(admin1.getPassword());
+            admin1.setPassword(encodedPassword);
+            admin1.setEnabled(true);
 
-            repository.saveAll(List.of(admin));
+            AppUser admin2 = new AppUser(
+                    "Toufiqul",
+                    "Alam",
+                    "sams52tas@gmail.com",
+                    "456",
+                    AppUserRole.ADMIN
+            );
+
+            encodedPassword = PasswordEncoder.encode(admin2.getPassword());
+            admin2.setPassword(encodedPassword);
+            admin2.setEnabled(true);
+
+            repository.saveAll(List.of(admin1, admin2));
         };
     }
 }
