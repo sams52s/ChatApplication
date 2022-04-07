@@ -1,111 +1,101 @@
-import React, { Component } from 'react';
-import { Card, Form, Button, Alert } from 'react-bootstrap';
-import { Link, withRouter } from 'react-router-dom';
-import UserService from '../services/UserService';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Card, Form, Button, Alert, CloseButton } from 'react-bootstrap';
+import { useCookies } from 'react-cookie';
+
 import GoogleButton from './GoogleButton';
 import UserIcon from './images/user_icon.png';
+import UserService from '../services/UserService';
 
-class Login extends Component {
-    constructor(props) {
-        super(props);
+function Login(props) {
 
-        this.state = {
-            inputEmail: "",
-            inputPwd: "",
-            showErrorAlert: false,  // true false
-            errorMessage: ""
-        }
+    const [formEmail, setFormEmail] = useState("");
+    const [formPwd, setFormPwd] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(null);
+    const navigate = useNavigate();
+
+    const [cookies, setCookie] = useCookies('email');
+
+    const close = () => {
+        navigate('/');
     }
 
-    errorAlert = () => {
+    const errorAlert = () => {
 
-        if (this.state.showErrorAlert) {
-
+        if (showAlert) {
             return (<Alert variant="danger">
                 <Alert.Heading>ERROR:</Alert.Heading>
-                
-                {this.state.errorMessage}
-                
+                {errorMessage}
             </Alert>);
         }
     }
 
-    authenticate = (email) => {
-        this.props.main_setEmail(email);
-        this.props.main_setName();
-        this.props.history.push("/app");
-    }
-
-    cancel = () => {
-        this.props.history.push("/");
-    } 
-
-    componentDidMount() {
-        console.log(this.props);
-    }
-
-    handleSubmit = (event) => {
-
-        event.preventDefault();
-        const { inputEmail, inputPwd } = this.state;
-
-        // If unauthorized, catch the error
-        UserService.loginCheckStatus(inputEmail, inputPwd)
-            .then(() => {
-                this.setState({showErrorAlert: false});
-                console.log("Email: "+inputEmail);
-                console.log("Password: "+inputPwd);
-            })
-            .catch((e) => this.setState({showErrorAlert: true, errorMessage: e.response.data.message}));
-        
+    const updateUser = (email) => {
+        setShowAlert(false);
+        props.main_setEmail(email);
+        setCookie('email', email);
+        navigate("/app");
     }
 
     
-    render() { 
-        return (
-            <div align='center'>
-            <Card style={{ width: '30rem', backgroundColor: '#d6edf5' }} className='p-2 m-5' align='left'>
-                <Card.Body>
-                    <Card.Title align='center'><h1>Login</h1></Card.Title>
-                    <br />
-                    <Card.Text align='center'>
-                        <img src={UserIcon} alt='User Icon' width='180' height='180' /> 
-                    </Card.Text>
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        UserService.authenticate(formEmail, formPwd)
+            .then(() => {
+                console.log("Login successful!");
+                updateUser(formEmail);
+            })
+            .catch((e) => {
+                setShowAlert(true);
+                setErrorMessage(e.response.data.message);
+            });
+    };
 
-                    {this.errorAlert()}
-                    
-                    <Form>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" value={this.state.inputEmail}
-                            onChange={(e) => this.setState({inputEmail: e.target.value})} />
+    return (
+        <div align='center'>
+        <Card style={{ width: '30rem', backgroundColor: '#d6edf5' }} className='p-3 m-5' align='left'>
+            <CloseButton onClick={close}/>
+            <Card.Body>
+                <Card.Title align='center'><h1>Login</h1></Card.Title>
+                <br />
+                <Card.Text align='center'>
+                    <img src={UserIcon} alt='User Icon' width='180' height='180' /> 
+                </Card.Text>
 
-                            <Form.Text className="text-muted">
-                                We'll never share your email with anyone else.
-                            </Form.Text>
-                        </Form.Group>
+                {errorAlert()}
+                
+                <Form>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control type="email" placeholder="Enter email"
+                        value={formEmail} onChange={(e) => setFormEmail(e.target.value)} />
 
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" value={this.state.inputPwd}
-                            onChange={(e) => this.setState({inputPwd: e.target.value})} />
-                        </Form.Group>
+                        <Form.Text className="text-muted">
+                            We'll never share your email with anyone else.
+                        </Form.Text>
+                    </Form.Group>
 
-                        <Button variant="secondary" type="submit" onClick={this.handleSubmit}>
-                            Submit
-                        </Button>
-                    </Form>
-                    <hr />
-                    <Card.Text align='center'>
-                        New User? <Link to='#'>Create an account</Link>
-                    </Card.Text>
-                    <GoogleButton />
-                    <Button onClick={this.cancel}>Cancel</Button>
-                </Card.Body>
-            </Card>
-            </div>
-        );
-    }
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" placeholder="Password"
+                        value={formPwd} onChange={(e) => setFormPwd(e.target.value)} />
+                    </Form.Group>
+
+                    <Button variant="secondary" type="submit" onClick={handleSubmit}>
+                        Submit
+                    </Button>
+                </Form>
+                <hr />
+                <Card.Text align='center'>
+                    New User? <Link to='#'>Create an account</Link>
+                </Card.Text>
+                <GoogleButton login_updateUser={updateUser}/>
+            </Card.Body>
+        </Card>
+        </div>
+    );
 }
- 
-export default withRouter(Login);
+
+export default Login;

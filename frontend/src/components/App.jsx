@@ -1,22 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Navigate } from 'react-router-dom';
 
-class App extends Component {
-    constructor(props) {
-        super(props);
+const App = (props) => {
 
-        this.state = {
-            connected: false
-        }
-    }
-    
-    render() { 
+    if (props.main_getEmail() === null) {
         return (
-            <div className='App'>
-                <p>{this.props.main_getName()}</p>
-                <p>{this.props.main_getEmail()}</p>
-            </div>
+            <Navigate to='/' />
         );
     }
+
+    return (
+        <div className='App'>
+            <p><mark>{props.main_getEmail()}</mark></p>
+        </div>
+    );
 }
  
 export default App;

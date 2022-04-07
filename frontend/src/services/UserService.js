@@ -18,7 +18,7 @@ class UserService {
         }
     }
 
-    loginCheckStatus(email, password) {
+    authenticate(email, password) {
         return axios.get(USER_API_BASE_URL+"login?email="+email+"&pwd="+password);
     }
 
