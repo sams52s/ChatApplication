@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, Navigate } from 'react-router-dom';
 import { Card, Form, Button, Alert, CloseButton } from 'react-bootstrap';
-import { useCookies } from 'react-cookie';
 
 import GoogleButton from './GoogleButton';
 import UserIcon from './images/user_icon.png';
@@ -15,7 +14,9 @@ function Login(props) {
     const [errorMessage, setErrorMessage] = useState(null);
     const navigate = useNavigate();
 
-    const [cookies, setCookie] = useCookies('email');
+    if (props.main_getEmail() !== null) {
+        return (<Navigate to='/app' />);
+    }
 
     const close = () => {
         navigate('/');
@@ -31,10 +32,17 @@ function Login(props) {
         }
     }
 
-    const updateUser = (email) => {
+    const storeUser = (email) => {
         setShowAlert(false);
+
+        UserService.getUser(email)
+            .then((res) => sessionStorage.setItem("user_id", res.data.id));
+
+        let date = new Date();
+        date.setDate(date.getDate()+2);
+        sessionStorage.setItem("login_expiry_date", date.getTime()); // Expires after 2 days
+        
         props.main_setEmail(email);
-        setCookie('email', email);
         navigate("/app");
     }
 
@@ -45,7 +53,7 @@ function Login(props) {
         UserService.authenticate(formEmail, formPwd)
             .then(() => {
                 console.log("Login successful!");
-                updateUser(formEmail);
+                storeUser(formEmail);
             })
             .catch((e) => {
                 setShowAlert(true);
@@ -91,7 +99,7 @@ function Login(props) {
                 <Card.Text align='center'>
                     New User? <Link to='#'>Create an account</Link>
                 </Card.Text>
-                <GoogleButton login_updateUser={updateUser}/>
+                <GoogleButton login_storeUser={storeUser}/>
             </Card.Body>
         </Card>
         </div>

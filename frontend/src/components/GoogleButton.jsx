@@ -20,8 +20,7 @@ function GoogleButton(props) {
         };
 
         UserService.createUserWithGoogle(fetchedJson);
-        // this.props.login_setEmail(response.profileObj.email);
-        props.login_updateUser(response.profileObj.email);
+        props.login_storeUser(response.profileObj.email);
     }
 
     const errorReport = (response) => {

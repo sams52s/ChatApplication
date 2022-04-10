@@ -9,6 +9,10 @@ class UserService {
         return axios.get(USER_API_BASE_URL+"get/"+email);
     }
 
+    getUserById(id) {
+        return axios.get(USER_API_BASE_URL+"getbyid/"+id);
+    }
+
     getUserName(email, isfullName) {
         if (isfullName) {
             return axios.get(USER_API_BASE_URL+"getfullname/"+email);
@@ -21,7 +25,6 @@ class UserService {
     authenticate(email, password) {
         return axios.get(USER_API_BASE_URL+"login?email="+email+"&pwd="+password);
     }
-
 
     createUser(appUser) {
         return axios.post(USER_API_REG_URL, appUser);

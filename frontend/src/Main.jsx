@@ -6,8 +6,27 @@ import Home from './Home';
 import Login from './components/Login';
 import Header from './components/Header';
 import App from './components/App';
+import UserService from './services/UserService';
 
 class Main extends Component {
+
+    componentDidMount() {
+        
+        if (sessionStorage.getItem("user_id") !== null) {
+            
+            let today = parseInt(Date.now());
+            let expireTime = parseInt(sessionStorage.getItem("login_expiry_date"));
+
+            if (today >= expireTime) {
+                alert("Oops! Your session has timed out. Please sign in again.");
+                this.logout();
+            }
+            else {
+                UserService.getUserById(sessionStorage.getItem("user_id"))
+                    .then((res) => this.setState({email: res.data.email}));
+            }
+        }
+    }
 
     state = {
         email: null
@@ -24,6 +43,9 @@ class Main extends Component {
 
     logout = () => {
         this.setState({email: null});
+        sessionStorage.removeItem("user_id");
+        sessionStorage.removeItem("login_expiry_date");
+
         console.log("Logout");
     }
 
@@ -34,8 +56,8 @@ class Main extends Component {
                 <BrowserRouter>
                         
                     <Routes>
-                        <Route exact path="/" element={<Home />} />
-                        <Route path="/login" element={<Login main_setEmail={this.setEmail} />} />
+                        <Route exact path="/" element={<Home main_getEmail={this.getEmail} />} />
+                        <Route path="/login" element={<Login main_setEmail={this.setEmail} main_getEmail={this.getEmail} />} />
                         <Route path="/app" element={<App main_getEmail={this.getEmail} />} />
                     </Routes>
                     

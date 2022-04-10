@@ -4,8 +4,9 @@ import { Navigate } from 'react-router-dom';
 const App = (props) => {
 
     if (props.main_getEmail() === null) {
+        console.log("Navigating back to login");
         return (
-            <Navigate to='/' />
+            <Navigate to='/login' />
         );
     }
 
