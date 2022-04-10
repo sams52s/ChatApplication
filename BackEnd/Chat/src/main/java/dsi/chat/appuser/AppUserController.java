@@ -26,23 +26,18 @@ public class AppUserController {
         return appUserService.userLogin(email, pwd);
     }
 
-    // Get the user with the given email
-    @GetMapping(path = "get/{email}")
-    public AppUser getUser(@PathVariable String email) {
-        return appUserService.getUserByEmail(email);
-    }
+//    // Get the user with the given email
+//    @GetMapping(path = "get/{email}")
+//    public AppUser getUser(@PathVariable String email) {
+//        return appUserService.getUserByEmail(email);
+//    }
 
     // Get the user with the given ID
-    @GetMapping(path = "getbyid/{id}")
-    public ResponseEntity<AppUser> getUserById(@PathVariable Long id) {
+    @GetMapping(path = "get/{id}")
+    public ResponseEntity<AppUser> getUser(@PathVariable Long id) {
         return appUserService.getUserById(id);
     }
 
-    // Get all user IDs except the provided email
-    @GetMapping(path = "getothers/{email}")
-    public List<Long> getOthers(@PathVariable String email) {
-        return appUserService.getOtherUsers(email);
-    }
 
     // Get the user ID from given email
     @GetMapping(path = "get-id-by-email/{email}")
@@ -51,14 +46,14 @@ public class AppUserController {
     }
 
     // Get the first name by email
-    @GetMapping(path = "getname/{email}")
-    public String getFirstName(@PathVariable String email) {
-        return appUserService.getName(email, false);
+    @GetMapping(path = "getname/{id}")
+    public String getFirstName(@PathVariable Long id) {
+        return appUserService.getName(id, false);
     }
 
     // Get the full name by email
-    @GetMapping(path = "getfullname/{email}")
-    public String getFullName(@PathVariable String email) {
-        return appUserService.getName(email, true);
+    @GetMapping(path = "getfullname/{id}")
+    public String getFullName(@PathVariable Long id) {
+        return appUserService.getName(id, true);
     }
 }

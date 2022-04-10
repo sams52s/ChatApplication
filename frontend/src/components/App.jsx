@@ -3,18 +3,18 @@ import { Navigate } from 'react-router-dom';
 
 const App = (props) => {
 
-    if (props.main_getEmail() === null) {
-        console.log("Navigating back to login");
-        return (
-            <Navigate to='/login' />
-        );
-    }
 
+    if (props.getUserId() === null || sessionStorage.getItem("user_id") === null) {
+        return (<Navigate to='/login'/>);
+    }
+    
+    
     return (
         <div className='App'>
-            <p><mark>{props.main_getEmail()}</mark></p>
+            <p><mark>User ID: {props.getUserId()}</mark></p>
         </div>
     );
+    
 }
  
 export default App;

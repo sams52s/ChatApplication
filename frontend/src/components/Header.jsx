@@ -8,13 +8,15 @@ const Header = (props) => {
 
     const [name, setName] = useState("");
 
-    if (props.main_getEmail() !== null) {
-        UserService.getUserName(props.main_getEmail(), true)
+    if (props.getUserId() !== null) {
+        UserService.getUserName(props.getUserId(), true)
             .then((res) => setName(res.data));
     }
 
     const logout = () => {
-        props.main_logout();
+        props.userLogout();
+        alert("You are logged out. Please exit the browser for added security.");
+        window.location.reload(false);
     }
 
     return (
@@ -32,7 +34,7 @@ const Header = (props) => {
                 
             </Container>
 
-            { props.main_getEmail() === null ? (
+            { props.getUserId() === null ? (
                 <Button className='me-3' align='right' variant="primary" href='/login'><i className="bi bi-key-fill" />{' '}Login</Button>
             ) : (
                 <div align='right'>

@@ -24,20 +24,21 @@ public class AppUserService {
     private final AppUserRepository appUserRepository;
     private final ConfirmationTokenService confirmationTokenService;
 
-    public AppUser getUserByEmail(String email) {
+    public ResponseEntity<AppUser> getUserById(Long userId) {
+        AppUser appUser = appUserRepository.findById(userId)
+                .orElseThrow(() -> new EntityNotFoundException("The user with id "+userId+" does not exist."));
 
-        return appUserRepository.findByEmail(email)
-                .orElseThrow(() -> new EntityNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
+        return ResponseEntity.ok(appUser);
     }
 
-    public String getName(String email, boolean fullName) throws EntityNotFoundException {
+    public String getName(Long id, boolean fullName) throws EntityNotFoundException {
 
-        if (appUserRepository.findByEmail(email).isEmpty()) {
-            throw new EntityNotFoundException(String.format(USER_NOT_FOUND_MSG, email));
+        if (appUserRepository.findById(id).isEmpty()) {
+            throw new EntityNotFoundException(String.format(USER_NOT_FOUND_MSG, id));
         }
 
-        String firstName = appUserRepository.findByEmail(email).get().getFirstName();
-        String lastName = appUserRepository.findByEmail(email).get().getLastName();
+        String firstName = appUserRepository.getById(id).getFirstName();
+        String lastName = appUserRepository.getById(id).getLastName();
 
         return fullName ? firstName+" "+lastName : firstName;
     }
@@ -105,14 +106,6 @@ public class AppUserService {
         }
     }
 
-    public AppUser getAppUser(Long appUserId) {
-        if (!appUserRepository.existsById(appUserId)) {
-            throw new EntityNotFoundException("The user with id "+appUserId+" does not exist.");
-        }
-
-        return appUserRepository.getById(appUserId);
-    }
-
     public Long getIdByEmail(String email) throws EntityNotFoundException {
 
         if (appUserRepository.findByEmail(email).isEmpty()) {
@@ -120,13 +113,6 @@ public class AppUserService {
         }
 
         return appUserRepository.findByEmail(email).get().getId();
-    }
-
-    public ResponseEntity<AppUser> getUserById(Long userId) {
-        AppUser appUser = appUserRepository.findById(userId)
-                .orElseThrow(() -> new EntityNotFoundException("The user with id "+userId+" does not exist."));
-
-        return ResponseEntity.ok(appUser);
     }
 
     public String makeNewToken(AppUser appUser) {

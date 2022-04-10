@@ -11,7 +11,7 @@ function GoogleButton(props) {
         // this.props.login_changeName(response.profileObj.givenName);
         // console.log(`Logged in with Google as ${response.profileObj.name}`);
         // this.props.history.push("/");
-        console.log(response.profileObj);
+        // console.log(response.profileObj);
         
         let fetchedJson = {
             firstName: response.profileObj.givenName,
@@ -20,7 +20,7 @@ function GoogleButton(props) {
         };
 
         UserService.createUserWithGoogle(fetchedJson);
-        props.login_storeUser(response.profileObj.email);
+        props.storeUserId(response.profileObj.email);
     }
 
     const errorReport = (response) => {

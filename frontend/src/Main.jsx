@@ -6,12 +6,12 @@ import Home from './Home';
 import Login from './components/Login';
 import Header from './components/Header';
 import App from './components/App';
-import UserService from './services/UserService';
 
 class Main extends Component {
 
     componentDidMount() {
         
+        console.log("User ID: "+this.state.userId);
         if (sessionStorage.getItem("user_id") !== null) {
             
             let today = parseInt(Date.now());
@@ -22,23 +22,22 @@ class Main extends Component {
                 this.logout();
             }
             else {
-                UserService.getUserById(sessionStorage.getItem("user_id"))
-                    .then((res) => this.setState({email: res.data.email}));
+                this.setId(parseInt(sessionStorage.getItem("user_id")));
             }
         }
     }
 
     state = {
-        email: null
+        userId: null
     }
 
-    getEmail = () => {
-        return this.state.email;
+    getId = () => {
+        return this.state.userId;
     }
 
-    setEmail = (input) => {
-        this.setState({email: input});
-        console.log("Email changed to: "+input);
+    setId = (input) => {
+        this.setState({userId: input});
+        console.log("ID changed to: "+input);
     }
 
     logout = () => {
@@ -46,19 +45,18 @@ class Main extends Component {
         sessionStorage.removeItem("user_id");
         sessionStorage.removeItem("login_expiry_date");
 
-        console.log("Logout");
     }
 
     render() { 
         return (
             <main className='Main'>
-                <Header main_getEmail={this.getEmail} main_logout={this.logout} />
+                <Header getUserId={this.getId} userLogout={this.logout} />
                 <BrowserRouter>
                         
                     <Routes>
-                        <Route exact path="/" element={<Home main_getEmail={this.getEmail} />} />
-                        <Route path="/login" element={<Login main_setEmail={this.setEmail} main_getEmail={this.getEmail} />} />
-                        <Route path="/app" element={<App main_getEmail={this.getEmail} />} />
+                        <Route path="/" element={<Home main_getId={this.getId} />} />
+                        <Route path="login" element={<Login getUserId={this.getId} setUserId={this.setId} />} />
+                        <Route path="app" element={<App getUserId={this.getId} />} />
                     </Routes>
                     
                 </BrowserRouter>

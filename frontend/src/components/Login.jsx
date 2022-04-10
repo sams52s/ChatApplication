@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate, Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { Card, Form, Button, Alert, CloseButton } from 'react-bootstrap';
 
 import GoogleButton from './GoogleButton';
@@ -14,8 +14,8 @@ function Login(props) {
     const [errorMessage, setErrorMessage] = useState(null);
     const navigate = useNavigate();
 
-    if (props.main_getEmail() !== null) {
-        return (<Navigate to='/app' />);
+    if (props.getUserId() !== null) {
+        return (<Navigate to='/app'/>);
     }
 
     const close = () => {
@@ -32,18 +32,19 @@ function Login(props) {
         }
     }
 
-    const storeUser = (email) => {
+    const storeUserId = (email) => {
         setShowAlert(false);
 
-        UserService.getUser(email)
-            .then((res) => sessionStorage.setItem("user_id", res.data.id));
+        UserService.getIdByEmail(email)
+            .then((res) => {
+                sessionStorage.setItem("user_id", res.data);
+                props.setUserId(res.data);
+            });
 
         let date = new Date();
         date.setDate(date.getDate()+2);
         sessionStorage.setItem("login_expiry_date", date.getTime()); // Expires after 2 days
-        
-        props.main_setEmail(email);
-        navigate("/app");
+    
     }
 
     
@@ -53,7 +54,7 @@ function Login(props) {
         UserService.authenticate(formEmail, formPwd)
             .then(() => {
                 console.log("Login successful!");
-                storeUser(formEmail);
+                storeUserId(formEmail);
             })
             .catch((e) => {
                 setShowAlert(true);
@@ -99,7 +100,7 @@ function Login(props) {
                 <Card.Text align='center'>
                     New User? <Link to='#'>Create an account</Link>
                 </Card.Text>
-                <GoogleButton login_storeUser={storeUser}/>
+                <GoogleButton storeUserId={storeUserId}/>
             </Card.Body>
         </Card>
         </div>
