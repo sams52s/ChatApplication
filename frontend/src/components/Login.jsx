@@ -44,7 +44,8 @@ function Login(props) {
         let date = new Date();
         date.setDate(date.getDate()+2);
         sessionStorage.setItem("login_expiry_date", date.getTime()); // Expires after 2 days
-    
+        
+        navigate('/app');
     }
 
     

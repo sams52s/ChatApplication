@@ -41,7 +41,7 @@ class Main extends Component {
     }
 
     logout = () => {
-        this.setState({email: null});
+        this.setState({userId: null});
         sessionStorage.removeItem("user_id");
         sessionStorage.removeItem("login_expiry_date");
 

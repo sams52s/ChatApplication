@@ -16,7 +16,6 @@ const Header = (props) => {
     const logout = () => {
         props.userLogout();
         alert("You are logged out. Please exit the browser for added security.");
-        window.location.reload(false);
     }
 
     return (
