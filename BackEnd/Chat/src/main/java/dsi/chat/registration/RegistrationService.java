@@ -30,9 +30,12 @@ public class RegistrationService {
     private final EmailSender emailResender;
 
     public String register(RegistrationRequest request) throws InvalidEmailException {
+
+
+        // Check for e-mail address regular expression
         boolean isValidEmail = emailValidator.test(request.getEmail());
         if (!isValidEmail) {
-            throw new InvalidEmailException("email not valid");
+            throw new InvalidEmailException("Invalid e-mail expression");
         }
 
         String token = appUserService.signUpUser(
@@ -49,8 +52,9 @@ public class RegistrationService {
         emailSender.send(
                 request.getEmail(),
                 buildEmail(request.getFirstName(), link));
-        
+
         return token;
+
     }
 
     public String registerWithGoogle(RegistrationRequestWithoutPass request) {

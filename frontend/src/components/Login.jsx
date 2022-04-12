@@ -94,12 +94,12 @@ function Login(props) {
                     </Form.Group>
 
                     <Button variant="secondary" type="submit" onClick={handleSubmit}>
-                        Submit
+                        Login
                     </Button>
                 </Form>
                 <hr />
                 <Card.Text align='center'>
-                    New User? <Link to='#'>Create an account</Link>
+                    New User? <Link to='/register'>Create an account</Link>
                 </Card.Text>
                 <GoogleButton storeUserId={storeUserId}/>
             </Card.Body>
