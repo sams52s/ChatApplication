@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Card, Button, Spinner } from 'react-bootstrap';
 
@@ -7,7 +7,7 @@ import crossmark from '../images/crossmark.png';
 import infomark from '../images/info.png';
 import UserService from '../../services/UserService';
 
-function ConfirmPage(props) {
+function ConfirmPage() {
 
     const [errorCaught, setErrorCaught] = useState(false);
     const [isHighPriority, setIsHighPriority] = useState(true);
@@ -18,16 +18,21 @@ function ConfirmPage(props) {
 
     const { token } = useParams();
 
+    //const [executed, setExecuted] = useState(false); 
+
     const title = () => {
+
+        let successTitle = "Confirmation successful!";
+
         switch (serverResponse) {
             case "token expired":
                 return "Confirmation Token Expired";
             case "email already confirmed":
-                return "E-mail already Confirmed";
+                return successTitle;
             case "token not found":
                 return "Token Not Found";
             case "confirmed":
-                return "Confirmation successful!";
+                return successTitle;
             default:
                 return serverResponse;
         }
@@ -48,6 +53,8 @@ function ConfirmPage(props) {
     }
 
     const message = () => {
+
+
         switch (serverResponse) {
             case "token expired":
                 return "Oops! Your confirmation token has expired. Please have your email resent, and confirm again. You'll be given another 15 minutes.";
@@ -103,17 +110,25 @@ function ConfirmPage(props) {
         }
     }
 
-    UserService.confirmToken(token).then((res) => {
-        setErrorCaught(false);
-        setServerResponse(res.data);
-    }).catch((e) => {
-        setErrorCaught(true);
-        setServerResponse(e.response.data.message);
+    useEffect(() => {
 
-        if (e.response.data.message === "email already confirmed") {
-            setIsHighPriority(false);
-        }
-    });
+        UserService.confirmToken(token).then((res) => {
+            setErrorCaught(false);
+            setServerResponse(res.data);
+        }).catch((e) => {
+            setErrorCaught(true);
+            setServerResponse(e.response.data.message);
+
+            if (e.response.data.message === "email already confirmed") {
+                setIsHighPriority(false);
+            }
+        });
+
+        console.log("Executed");
+        
+
+    }, [token]);
+        
 
 
     return (

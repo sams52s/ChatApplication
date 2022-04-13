@@ -1,4 +1,4 @@
-package dsi.chat.registration;
+package dsi.chat.registration.password;
 
 import org.springframework.context.annotation.Configuration;
 

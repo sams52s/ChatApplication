@@ -3,7 +3,7 @@ package dsi.chat.registration;
 import dsi.chat.appuser.AppUser;
 import dsi.chat.appuser.AppUserRepository;
 import dsi.chat.appuser.AppUserRole;
-import dsi.chat.appuser.AppUserService;
+import dsi.chat.registration.password.PasswordEncoder;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

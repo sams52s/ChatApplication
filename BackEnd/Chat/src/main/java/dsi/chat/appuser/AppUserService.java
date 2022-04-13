@@ -2,7 +2,7 @@ package dsi.chat.appuser;
 
 import dsi.chat.appuser.exceptions.BadCredentialsException;
 import dsi.chat.appuser.exceptions.UnverifiedAccountException;
-import dsi.chat.registration.PasswordEncoder;
+import dsi.chat.registration.password.PasswordEncoder;
 import dsi.chat.registration.token.ConfirmationToken;
 import dsi.chat.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;

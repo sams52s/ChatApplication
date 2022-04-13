@@ -6,6 +6,7 @@ import dsi.chat.appuser.AppUserService;
 import dsi.chat.email.EmailSender;
 import dsi.chat.email.EmailValidator;
 import dsi.chat.email.InvalidEmailException;
+import dsi.chat.registration.password.PasswordGenerator;
 import dsi.chat.registration.token.ConfirmationToken;
 import dsi.chat.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
