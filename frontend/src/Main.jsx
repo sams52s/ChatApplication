@@ -6,13 +6,12 @@ import Home from './Home';
 import Login from './components/Login';
 import Header from './components/Header';
 import App from './components/App';
-import Registration from './components/registration/Registration';
-import ConfirmPage from './components/registration/ConfirmPage';
 
 class Main extends Component {
 
     componentDidMount() {
         
+        console.log("User ID: "+this.state.userId);
         if (sessionStorage.getItem("user_id") !== null) {
             
             let today = parseInt(Date.now());
@@ -42,10 +41,10 @@ class Main extends Component {
     }
 
     logout = () => {
-        this.setState({userId: null});
+        this.setState({email: null});
         sessionStorage.removeItem("user_id");
         sessionStorage.removeItem("login_expiry_date");
-        window.location.reload(false);
+
     }
 
     render() { 
@@ -58,8 +57,6 @@ class Main extends Component {
                         <Route path="/" element={<Home main_getId={this.getId} />} />
                         <Route path="login" element={<Login getUserId={this.getId} setUserId={this.setId} />} />
                         <Route path="app" element={<App getUserId={this.getId} />} />
-                        <Route path="register" element={<Registration setUserId={this.setId} />} />
-                        <Route path="conf/:token" element={<ConfirmPage />} />
                     </Routes>
                     
                 </BrowserRouter>

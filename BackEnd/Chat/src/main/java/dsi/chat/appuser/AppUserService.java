@@ -130,8 +130,6 @@ public class AppUserService {
         appUserRepository.enableAppUser(email);
     }
 
-    // -------- These functions below are for the chat application --------------------
-
     // Select all Users
     public List<AppUser> getUsers() {
         return appUserRepository.findAll();
@@ -140,13 +138,5 @@ public class AppUserService {
     // Select all users except for the one with the provided email
     public List<Long> getOtherUsers(String email) {
         return appUserRepository.findOtherIds(email);
-    }
-
-    public Integer getPrivateKeyById(Long userId) {
-        if (!appUserRepository.existsById(userId)) {
-            throw new EntityNotFoundException("The user with id "+userId+" does not exist.");
-        }
-
-        return appUserRepository.getById(userId).getPrivateKey();
     }
 }
