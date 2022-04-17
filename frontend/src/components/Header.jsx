@@ -16,6 +16,7 @@ const Header = (props) => {
     const logout = () => {
         props.userLogout();
         alert("You are logged out. Please exit the browser for added security.");
+        window.location.reload(false);
     }
 
     return (
@@ -27,7 +28,7 @@ const Header = (props) => {
                 <Navbar.Brand href="/"><img alt="" src={Logo} width="30" height="30" className="d-inline-block align-top"/>{' '}Chat Application</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="/app">Chatting Room</Nav.Link>
+                        <Nav.Link href="#blog">Blog</Nav.Link>
                         <Nav.Link href="#about">About</Nav.Link>
                     </Nav>
                 

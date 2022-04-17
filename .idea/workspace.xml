@@ -1,11 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="29593578-1966-4948-bdef-495ab6d65dba" name="Changes" comment="branch created" />
+    <list default="true" id="29593578-1966-4948-bdef-495ab6d65dba" name="Changes" comment="branch created">
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/config/websocketConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/controller/MessageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/controller/UsersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/model/MessageModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/storage/UserStorage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ChatRoom.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/js/chat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8e0f32ec-2a99-469a-87ab-5ac877b0c918.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8e0f32ec-2a99-469a-87ab-5ac877b0c918.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8e0f32ec-2a99-469a-87ab-5ac877b0c918/storage_v2/_src_/database/chatapplication.-Gq8ug/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8e0f32ec-2a99-469a-87ab-5ac877b0c918/storage_v2/_src_/database/chatapplication.-Gq8ug/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/appuser/AppUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/appuser/AppUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/registration/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/chat/registration/RegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -14,12 +47,16 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
@@ -27,24 +64,50 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="273OUGxvzR06I78RNaKLc5i9rJs" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DatabaseDriversLRU" value="postgresql" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/dsi/work/ChatApplication",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "spring.configuration.checksum": "55dcdf017b51fc96f7b5f9d63013b95d"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/components" />
       <recent name="$PROJECT_DIR$/BackEnd/Chat/src/main/java/dsi/appuser" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ChatApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="Chat" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="dsi.chat.ChatApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dsi.chat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.ChatApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -62,7 +125,11 @@
       <workItem from="1648624178319" duration="12000" />
       <workItem from="1649056387158" duration="365000" />
       <workItem from="1649057229072" duration="65000" />
-      <workItem from="1649600832060" duration="72000" />
+      <workItem from="1649659122994" duration="4967000" />
+      <workItem from="1649741375778" duration="2556000" />
+      <workItem from="1649746892021" duration="4478000" />
+      <workItem from="1649762370873" duration="17000" />
+      <workItem from="1650185918741" duration="422000" />
     </task>
     <servers />
   </component>
@@ -81,6 +148,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="branch created" />
     <option name="LAST_COMMIT_MESSAGE" value="branch created" />
   </component>

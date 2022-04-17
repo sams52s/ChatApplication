@@ -3,9 +3,8 @@ import { Navigate } from 'react-router-dom';
 
 const App = (props) => {
 
-    
 
-    if (props.getUserId() === null) {
+    if (props.getUserId() === null || sessionStorage.getItem("user_id") === null) {
         return (<Navigate to='/login'/>);
     }
     

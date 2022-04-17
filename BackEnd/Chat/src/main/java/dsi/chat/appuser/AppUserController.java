@@ -25,13 +25,13 @@ public class AppUserController {
         return appUserService.userLogin(email, pwd);
     }
 
-//    // Get the user with the given email
-//    @GetMapping(path = "get/{email}")
-//    public AppUser getUser(@PathVariable String email) {
-//        return appUserService.getUserByEmail(email);
-//    }
+/*    Get the user with the given email
+   @GetMapping(path = "get/{email}")
+   public AppUser getUser(@PathVariable String email) {
+        return appUserService.getUserByEmail(email);
+   }
 
-    // Get the user with the given ID
+     Get the user with the given ID*/
     @GetMapping(path = "get/{id}")
     public ResponseEntity<AppUser> getUser(@PathVariable Long id) {
         return appUserService.getUserById(id);
