@@ -3,6 +3,7 @@ import { Navbar, Container, Nav, Button, Dropdown, DropdownButton } from 'react-
 import UserService from '../services/UserService';
 import Logo from './images/React-icon.svg';
 
+var stompClient = null;
 
 const Header = (props) => {
 
