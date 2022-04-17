@@ -1,4 +1,4 @@
-package dsi.chat.chatserver;
+package dsi.chat.chatserver.encryption;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;

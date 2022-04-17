@@ -35,6 +35,7 @@ public class AppUser {
     private AppUserRole appUserRole;
 
     private Boolean enabled = false;
+    private Integer privateKey = (int) Math.floor(Math.random() * 51);
 
     public AppUser(String firstName,
                    String lastName,

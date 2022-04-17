@@ -1,0 +1,22 @@
+.chat-box-container {
+    padding: 12px;
+    width: 30em;
+}
+  
+.chat-receiver-item {
+    border-radius: 8px;
+    width: -moz-fit-content;
+    width: fit-content;
+    background-color: #7300d1;
+    padding: 8px;
+    margin-bottom: 1em;
+}
+
+.chat-sender-item {
+    border-radius: 8px;
+    width: -moz-fit-content;
+    width: fit-content;
+    background-color: #d4d4d4;
+    padding: 8px;
+    margin-bottom: 1em;
+}
