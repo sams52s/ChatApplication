@@ -35,6 +35,7 @@ public class AppUser {
     private AppUserRole appUserRole;
 
     private Boolean enabled = false;
+    // Random key generated
     private Integer privateKey = (int) Math.floor(Math.random() * 51);
 
     public AppUser(String firstName,
@@ -47,30 +48,5 @@ public class AppUser {
         this.email = email;
         this.password = password;
         this.appUserRole = appUserRole;
-    }
-
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        AppUser appUser = (AppUser) o;
-        return id != null && Objects.equals(id, appUser.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
     }
 }

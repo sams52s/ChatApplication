@@ -16,23 +16,23 @@ public class ChatController {
     @Autowired
     private SimpMessagingTemplate simpMessagingTemplate;
 
-    @Autowired
-    private AppUserRepository appUserRepository;
+//    @Autowired
+//    private AppUserRepository appUserRepository;
 
-    @MessageMapping("/message") // /app/message
-    @SendTo("/chatroom/public") //
+    @MessageMapping("/message") // Accessed through /app/message
+    @SendTo("/chatroom/public")
     public Message receivePublicMessage(@Payload Message message) {
-        String encryptedMessage = MessageEncryptor.encrypt(message.getContent(), PUBLIC_KEY);
-        message.setContent(encryptedMessage);
+//        String encryptedMessage = MessageEncryptor.encrypt(message.getContent(), PUBLIC_KEY);
+//        message.setContent(encryptedMessage);
         return message;
     }
 
-    @MessageMapping("/private-message")
+    @MessageMapping("/private-message") // Accessed through /app/private-message
     public Message receivePrivateMessage(@Payload Message message) {
 
-        int privateKey = appUserRepository.getById(message.getReceiverId()).getPrivateKey();
-        String encryptedMessage = MessageEncryptor.encrypt(message.getContent(), privateKey);
-        message.setContent(encryptedMessage);
+//        int privateKey = appUserRepository.getById(message.getReceiverId()).getPrivateKey();
+//        String encryptedMessage = MessageEncryptor.encrypt(message.getContent(), privateKey);
+//        message.setContent(encryptedMessage);
 
         simpMessagingTemplate.convertAndSendToUser(message.getReceiverId().toString(), "/private", message); // /user/{User ID}/private
         return message;

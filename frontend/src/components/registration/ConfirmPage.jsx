@@ -129,7 +129,7 @@ function ConfirmPage() {
 
     }, [token]);
         
-
+    console.log(token);
 
     return (
         <div align='center'>

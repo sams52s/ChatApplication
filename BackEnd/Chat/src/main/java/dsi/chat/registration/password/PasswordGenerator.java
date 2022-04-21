@@ -2,6 +2,7 @@ package dsi.chat.registration.password;
 
 import org.springframework.context.annotation.Configuration;
 
+// This generates a password of random alphanumeric digits
 @Configuration
 public class PasswordGenerator {
 

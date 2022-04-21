@@ -15,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class RegistrationConfig {
 
+    // This adds two user admins when the server starts
     @Bean
     CommandLineRunner commandLineRunner(AppUserRepository repository) {
         return args -> {

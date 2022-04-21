@@ -63,6 +63,8 @@ function Login(props) {
             });
     };
 
+    console.log("Into Login Page");
+
     return (
         <div align='center'>
         <Card style={{ width: '30rem', backgroundColor: '#d6edf5' }} className='p-3 m-5' align='left'>

@@ -5,7 +5,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Home';
 import Login from './components/Login';
 import Header from './components/Header';
+import Registration from './components/registration/Registration';
+import ConfirmPage from './components/registration/ConfirmPage';
 import App from './components/App';
+import Test from './Test';
 
 class Main extends Component {
 
@@ -56,7 +59,11 @@ class Main extends Component {
                     <Routes>
                         <Route path="/" element={<Home main_getId={this.getId} />} />
                         <Route path="login" element={<Login getUserId={this.getId} setUserId={this.setId} />} />
+                        <Route path="register" element={<Registration setUserId={this.setId} />} />
+                        <Route path="conf/:token" element={<ConfirmPage />} />
                         <Route path="app" element={<App getUserId={this.getId} />} />
+                        <Route path="test" element={<Test />} />
+                        
                     </Routes>
                     
                 </BrowserRouter>

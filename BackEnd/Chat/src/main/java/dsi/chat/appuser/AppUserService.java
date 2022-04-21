@@ -130,11 +130,6 @@ public class AppUserService {
         appUserRepository.enableAppUser(email);
     }
 
-    // Select all Users
-    public List<AppUser> getUsers() {
-        return appUserRepository.findAll();
-    }
-
     // Select all users except for the one with the provided email
     public List<Long> getOtherUsers(String email) {
         return appUserRepository.findOtherIds(email);

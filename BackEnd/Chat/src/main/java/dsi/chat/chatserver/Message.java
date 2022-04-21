@@ -14,6 +14,6 @@ public class Message {
 
     private Long senderId;
     private Long receiverId;
-    private String content;
+    private String text;
     private Status status;
 }

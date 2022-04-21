@@ -120,7 +120,7 @@ public class RegistrationService {
 
         String emailBody = "";
         try {
-            File html_file = new File("/home/dsi/IdeaProjects/demo-app-backend/src/main/resources/static/   email-body.html");
+            File html_file = new File("src/main/resources/static/emailbody.html");
             Scanner myReader = new Scanner(html_file);
             while (myReader.hasNextLine()) {
                 emailBody += myReader.nextLine();

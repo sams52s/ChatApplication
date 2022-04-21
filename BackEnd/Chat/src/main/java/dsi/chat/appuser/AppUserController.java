@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -16,7 +17,7 @@ public class AppUserController {
 
     private final AppUserService appUserService;
 
-    // Checks whether the user credentials are correct
+    // Checks whether the user credentials are correct, otherwise throws an error
     @GetMapping(path = "login")
     public String login(
             @RequestParam("email") String email,
@@ -25,13 +26,9 @@ public class AppUserController {
         return appUserService.userLogin(email, pwd);
     }
 
-/*    Get the user with the given email
-   @GetMapping(path = "get/{email}")
-   public AppUser getUser(@PathVariable String email) {
-        return appUserService.getUserByEmail(email);
-   }
 
-     Get the user with the given ID*/
+
+    // Get the user with the given ID
     @GetMapping(path = "get/{id}")
     public ResponseEntity<AppUser> getUser(@PathVariable Long id) {
         return appUserService.getUserById(id);
@@ -50,9 +47,10 @@ public class AppUserController {
         return appUserService.getName(id, false);
     }
 
-    // Get the full name by email
+    // Get the full name by ID
     @GetMapping(path = "getfullname/{id}")
     public String getFullName(@PathVariable Long id) {
         return appUserService.getName(id, true);
     }
+
 }

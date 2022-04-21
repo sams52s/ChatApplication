@@ -14,18 +14,4 @@ public class MessageEncryptor {
 
         return encryptedCode.toString();
     }
-
-    public static String decrypt(String encryptedLine, int key) {
-        StringBuilder base64code = new StringBuilder();
-
-        for (char ch: encryptedLine.toCharArray()) {
-            ch -= key;
-            base64code.append(ch);
-        }
-
-        byte[] decodedBytes = Base64.getDecoder().decode(base64code.toString());
-        String decoded = new String(decodedBytes);
-
-        return decoded;
-    }
 }
